@@ -1,0 +1,11 @@
+AddDefaultCharset utf-8
+ErrorDocument 404 /page404.html
+php_flag magic_quotes_gpc Off
+DirectoryIndex index.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*) index.php
+
+RewriteCond %{HTTP_HOST} ^www.povaryonok.com$ [NC]
+RewriteRule ^(.*)$ http://povaryonok.com/$1 [R=301,L]
